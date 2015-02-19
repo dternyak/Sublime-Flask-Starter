@@ -20,17 +20,17 @@ class FlaskStarterBase(object):
 		if not len(paths):
 			raise ValueError("No path data available from SideBar")
 		else:
-			path=paths[0]+'\\'+ name 
+			path=paths[0]+'\'+ name 
 			if not os.path.exists(path):
 				os.makedirs(path)
 			return path
 	@staticmethod
 	def createSubFiles(name,path):
-		dirs=[path+'\\static',path+'\\templates']
+		dirs=[path+'\static',path+'\templates']
 		for dir in dirs:
 			if not os.path.exists(dir):
 				os.makedirs(dir)
-		appPath=path+'\\'+name+'.py'
+		appPath=path+'\'+name+'.py'
 		with open(appPath,'w') as f:
 			f.write(FLASK_CODE)
 
